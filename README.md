@@ -4,12 +4,9 @@ TODO: Write a project description
 
 ## Contributing
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+## Bug #1: The handleDrop() function needs to add the draggedPiece to the drop zone by appending it as a child element of the drop zone. This is missing from the current code.
 
+## Bug #2: The changeBGImage() function needs to make sure that the backgroundImage URL is surrounded by quotes to prevent errors if the URL contains spaces.
 ## Credits
 
 TODO: Write credits
