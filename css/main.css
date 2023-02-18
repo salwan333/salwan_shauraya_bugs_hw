@@ -56,11 +56,22 @@ body {
 
 .drop-zone {
 	width: 49.5%;
-  height: 49.5%;
-  border: thin dashed white;
-  float: left;
+	height: 49.5%;
+	/* border: thin dashed white; */
+	float: left;
 	position: relative;
 }
+
+.drop-zone img {
+	float: none;
+	padding: 0;
+	position: absolute;
+	width: 90%;
+}
+
+.tl img { right: 0; bottom: 0; }
+.tr img { bottom: 0; }
+.bl img { right: 0; }
 
 
 header {
@@ -102,4 +113,10 @@ footer {
 
 #buttonHolder img:hover {
 	opacity:.5;
+}
+
+#headLine h1 { transition: all ease 1.5s; }
+
+.orange-headline {
+	color: orange;
 }
