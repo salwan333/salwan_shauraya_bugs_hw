@@ -15,25 +15,11 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	// because we need it in the handleDrop function
 	draggedPiece;
 
-	//bug2
 function changeBGImage() {
-    dropZones.forEach(zone => {
-        while (zone.firstChild) {
-            zone.removeChild(zone.firstChild);
-        }
-    });
+	// bug fix #2: reset the puzzle pieces when changing the background image
+	resetPuzzlePieces();
 
-    puzzlePieces.forEach(piece => {
-        piece.classList.remove("dropped");
-        mainBoard.appendChild(piece);
-    });
-
-    puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
-}
-
-function handleStartDrag() { 
-    console.log('started dragging this piece:', this);
-    draggedPiece = this;
+	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 }
 
 function handleStartDrag() { 
@@ -54,9 +40,10 @@ function handleDrop(e) {
 	e.preventDefault();
 	console.log('dropped something on me');
 
-	// bug fix #1 should go here, and it's at most 3 lines of JS code
+	// bug fix #1: check if there's already a puzzle piece in this drop zone
 	if (this.children.length === 0) {
 		this.appendChild(draggedPiece);
+		draggedPiece.classList.add('dropped'); // add a class to indicate that the piece has been dropped
 	} else {
 		console.log("Can't drop here - already a piece");
 	}
@@ -68,7 +55,12 @@ function resetPuzzlePieces() {
 		if (zone.children.length > 0) {
 			zone.removeChild(zone.children[0]);
 			// move the puzzle piece back to the left side
-			puzzleBoard.appendChild(zone.children[0]);
+			puzzlePieces.forEach(piece => {
+				if (piece.classList.contains('dropped')) {
+					puzzleBoard.appendChild(piece);
+					piece.classList.remove('dropped');
+				}
+			});
 		}
 	});
 }
@@ -76,9 +68,6 @@ function resetPuzzlePieces() {
 // step 2
 // event handling always goes at the bottom => 
 // how do we want users to interact with our app
-
-// 1 to 1 event handling
-//theButton.addEventListener("click", changeBGImage);
 
 // 1 to many event handling
 // add event handling to each button in the collection of buttons, one at a time
@@ -88,8 +77,7 @@ theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
 
 // add the dragover AND the drop event handling to the drop zones
-dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
-
-// add the drop event handling
-dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
-
+dropZones.forEach(zone => {
+	zone.addEventListener("dragover", handleDragOver);
+	zone.addEventListener("drop", handleDrop);
+});
