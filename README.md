@@ -1,18 +1,18 @@
 # Drag and Drop Reference
 
-TODO: fixing bugs
+TODO: Write a project description
 
 ## Contributing
 
-1. added all the files 
-2. Fixed bug one 
-3. fixed bug two 
-4. did some final chnages 
-5.  hw done 
+1. added all the
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
 ## Credits
 
-TODO: fixing all the functions 
+TODO: Write credits
 
 ## License
 MIT
