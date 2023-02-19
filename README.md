@@ -1,6 +1,6 @@
 # Drag and Drop Reference
 
-TODO: Write a project description
+TODO: fixing bugs
 
 ## Contributing
 
