@@ -1,12 +1,13 @@
 # Drag and Drop Reference
 
-TODO: Write a project description
+TODO: fixing bugs
 
 ## Contributing
 
-## Bug #1. The handleDrop() function needs to add the draggedPiece to the drop zone by appending it as a child element of the drop zone. This is missing from the current code.
-
-## Bug #2. The changeBGImage() function needs to make sure that the backgroundImage URL is surrounded by quotes to prevent errors if the URL contains spaces
+1. did come changes in js 
+2. found all the bugs 
+3. fixed the bugs 
+4. hw finished 
 ## Credits
 
 TODO: Write credits
